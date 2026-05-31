@@ -26,7 +26,7 @@ def load_agent():
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = splitter.split_documents(pages)
     embeddings = MistralAIEmbeddings(api_key=api_key)
-    vectorstore = Chroma.from_documents(chunks, embeddings)
+    vectorstore = FAISS.from_documents(chunks, embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
     class AgentState(TypedDict):
