@@ -1,7 +1,11 @@
+streamlit
 langchain
 langchain-community
-langchain-groq
+langchain-mistralai
+langchain-text-splitters
+langchain-core
 langgraph
 chromadb
 pypdf
 python-dotenv
+langdetect
