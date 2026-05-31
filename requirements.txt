@@ -5,7 +5,7 @@ langchain-mistralai
 langchain-text-splitters
 langchain-core
 langgraph
-chromadb
+faiss-cpu
 pypdf
 python-dotenv
 langdetect
