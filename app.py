@@ -11,7 +11,7 @@ from langgraph.graph import StateGraph, END
 from typing import TypedDict, List
 from langdetect import detect
 
-load_dotenv()
+api_key = st.secrets["MISTRAL_API_KEY"]
 
 st.set_page_config(page_title="Avène Expert", page_icon="💧", layout="centered")
 st.title("💧 Avène Product Expert")
@@ -20,12 +20,12 @@ st.caption("Posez vos questions en français, anglais ou espagnol")
 # Init agent (une seule fois)
 @st.cache_resource
 def load_agent():
-    llm = ChatMistralAI(model="mistral-large-latest", api_key=os.getenv("MISTRAL_API_KEY"))
+    llm = ChatMistralAI(model="mistral-large-latest", api_key=api_key)
     loader = PyPDFLoader("data/avene_notice.pdf")
     pages = loader.load()
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = splitter.split_documents(pages)
-    embeddings = MistralAIEmbeddings(api_key=os.getenv("MISTRAL_API_KEY"))
+    embeddings = MistralAIEmbeddings(api_key=api_key)
     vectorstore = Chroma.from_documents(chunks, embeddings)
     retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
