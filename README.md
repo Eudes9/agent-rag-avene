@@ -52,5 +52,4 @@ streamlit run app.py
 
 ## 👤 Auteur
 
-**Jean-Eudes Gbada** — Data Scientist & AI Engineer
-[LinkedIn](https://linkedin.com/in/ton-profil) · [GitHub](https://github.com/Eudes9)
+**Jean-Eudes Gbada** — Data Scientist & AI Engineer [GitHub](https://github.com/Eudes9)
